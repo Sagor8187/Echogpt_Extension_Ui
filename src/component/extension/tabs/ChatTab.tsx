@@ -16,7 +16,7 @@ const aiModels = [
   { name: "GLM-5.3 Flash", type: "Advanced", badgeBg: "bg-orange-100 dark:bg-orange-900/40 text-orange-600 dark:text-orange-300" },
 ];
 
-export default function ChatTab() {
+export default function ChatTab({ setActiveTab }: { setActiveTab: (tab: string) => void }) {
   const [selectedModel, setSelectedModel] = useState("EchoGPT");
   const [isModelDropdownOpen, setIsModelDropdownOpen] = useState(false);
 
@@ -46,45 +46,72 @@ export default function ChatTab() {
             <h3 className="text-3xl font-extrabold tracking-tight">How can I help you?</h3>
           </div>
 
-          {/* Action Cards Grid */}
+          {/* Action Cards Grid with onClick handlers */}
           <div className="grid grid-cols-2 gap-4 mb-8">
-            <button className="flex items-center gap-3 p-4 rounded-2xl border border-gray-100 dark:border-white/5 bg-gray-50/60 dark:bg-white/5 hover:border-[#10a37f] dark:hover:border-[#CEF144] hover:shadow-sm transition-all text-left group cursor-pointer">
+            <button 
+              onClick={() => setActiveTab("write")}
+              className="flex items-center gap-3 p-4 rounded-2xl border border-gray-100 dark:border-white/5 bg-gray-50/60 dark:bg-white/5 hover:border-[#10a37f] dark:hover:border-[#CEF144] hover:shadow-sm transition-all text-left group cursor-pointer"
+            >
               <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-lg group-hover:scale-105 transition-transform">
                 <FiEdit3 className="w-4 h-4" />
               </div>
               <span className="font-semibold text-sm">Write</span>
             </button>
-            <button className="flex items-center gap-3 p-4 rounded-2xl border border-gray-100 dark:border-white/5 bg-gray-50/60 dark:bg-white/5 hover:border-[#10a37f] dark:hover:border-[#CEF144] hover:shadow-sm transition-all text-left group cursor-pointer">
+            
+            <button 
+              onClick={() => setActiveTab("translate")}
+              className="flex items-center gap-3 p-4 rounded-2xl border border-gray-100 dark:border-white/5 bg-gray-50/60 dark:bg-white/5 hover:border-[#10a37f] dark:hover:border-[#CEF144] hover:shadow-sm transition-all text-left group cursor-pointer"
+            >
               <div className="p-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg group-hover:scale-105 transition-transform">
                 <FiType className="w-4 h-4" />
               </div>
               <span className="font-semibold text-sm">Translate</span>
             </button>
-            <button className="flex items-center gap-3 p-4 rounded-2xl border border-gray-100 dark:border-white/5 bg-gray-50/60 dark:bg-white/5 hover:border-[#10a37f] dark:hover:border-[#CEF144] hover:shadow-sm transition-all text-left group cursor-pointer">
+            
+            <button 
+              onClick={() => setActiveTab("read")}
+              className="flex items-center gap-3 p-4 rounded-2xl border border-gray-100 dark:border-white/5 bg-gray-50/60 dark:bg-white/5 hover:border-[#10a37f] dark:hover:border-[#CEF144] hover:shadow-sm transition-all text-left group cursor-pointer"
+            >
               <div className="p-2 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-lg group-hover:scale-105 transition-transform">
                 <FiBookOpen className="w-4 h-4" />
               </div>
               <span className="font-semibold text-sm">Read page</span>
             </button>
-            <button className="flex items-center gap-3 p-4 rounded-2xl border border-gray-100 dark:border-white/5 bg-gray-50/60 dark:bg-white/5 hover:border-[#10a37f] dark:hover:border-[#CEF144] hover:shadow-sm transition-all text-left group cursor-pointer">
+            
+            <button 
+              onClick={() => setActiveTab("image")}
+              className="flex items-center gap-3 p-4 rounded-2xl border border-gray-100 dark:border-white/5 bg-gray-50/60 dark:bg-white/5 hover:border-[#10a37f] dark:hover:border-[#CEF144] hover:shadow-sm transition-all text-left group cursor-pointer"
+            >
               <div className="p-2 bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 rounded-lg group-hover:scale-105 transition-transform">
                 <FiImage className="w-4 h-4" />
               </div>
               <span className="font-semibold text-sm">Image</span>
             </button>
-            <button className="flex items-center gap-3 p-4 rounded-2xl border border-gray-100 dark:border-white/5 bg-gray-50/60 dark:bg-white/5 hover:border-[#10a37f] dark:hover:border-[#CEF144] hover:shadow-sm transition-all text-left group cursor-pointer">
+            
+            <button 
+              onClick={() => setActiveTab("video")}
+              className="flex items-center gap-3 p-4 rounded-2xl border border-gray-100 dark:border-white/5 bg-gray-50/60 dark:bg-white/5 hover:border-[#10a37f] dark:hover:border-[#CEF144] hover:shadow-sm transition-all text-left group cursor-pointer"
+            >
               <div className="p-2 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-lg group-hover:scale-105 transition-transform">
                 <FiVideo className="w-4 h-4" />
               </div>
               <span className="font-semibold text-sm">Video</span>
             </button>
-            <button className="flex items-center gap-3 p-4 rounded-2xl border border-gray-100 dark:border-white/5 bg-gray-50/60 dark:bg-white/5 hover:border-[#10a37f] dark:hover:border-[#CEF144] hover:shadow-sm transition-all text-left group cursor-pointer">
+            
+            <button 
+              onClick={() => setActiveTab("compare")}
+              className="flex items-center gap-3 p-4 rounded-2xl border border-gray-100 dark:border-white/5 bg-gray-50/60 dark:bg-white/5 hover:border-[#10a37f] dark:hover:border-[#CEF144] hover:shadow-sm transition-all text-left group cursor-pointer"
+            >
               <div className="p-2 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 rounded-lg group-hover:scale-105 transition-transform">
                 <FiColumns className="w-4 h-4" />
               </div>
               <span className="font-semibold text-sm">Compare</span>
             </button>
-            <button className="flex items-center gap-3 p-4 rounded-2xl border border-gray-100 dark:border-white/5 bg-gray-50/60 dark:bg-white/5 hover:border-[#10a37f] dark:hover:border-[#CEF144] hover:shadow-sm transition-all text-left group col-span-2 sm:col-span-1 cursor-pointer">
+            
+            <button 
+              onClick={() => setActiveTab("mcp")}
+              className="flex items-center gap-3 p-4 rounded-2xl border border-gray-100 dark:border-white/5 bg-gray-50/60 dark:bg-white/5 hover:border-[#10a37f] dark:hover:border-[#CEF144] hover:shadow-sm transition-all text-left group col-span-2 sm:col-span-1 cursor-pointer"
+            >
               <div className="p-2 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg group-hover:scale-105 transition-transform">
                 <FiLink className="w-4 h-4" />
               </div>

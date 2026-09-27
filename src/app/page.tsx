@@ -19,7 +19,7 @@ export default function ExtensionConcept() {
       
       {/* Dynamic Content Body (Left Side) */}
       <div className="flex-1 overflow-y-auto">
-      {activeTab === "chat" && <ChatTab></ChatTab>}
+      {activeTab === "chat" && <ChatTab setActiveTab={setActiveTab} />}
       {activeTab === "write" && <WriteTab></WriteTab>}
       {activeTab === "read" && <ReadTab></ReadTab>}
       {activeTab === "translate" && <TranslateTab></TranslateTab>}
